@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+    <Match>
+      <!-- to investigate: not clear why catch all is happening -->
+      <Class name="org.sonar.plugins.checkstyle.CheckstyleAuditListener" />
+      <Bug pattern="DE_MIGHT_IGNORE" />
+    </Match>
+    <Match>
+      <!-- to investigate: but most likely we prevent whole sonar crash there -->
+      <Class name="org.sonar.plugins.checkstyle.CheckstyleExecutor" />
+      <Bug pattern="REC_CATCH_EXCEPTION" />
+    </Match>
+    <Match>
+      <!-- till https://github.com/spotbugs/spotbugs/issues/259 -->
+      <Class name="org.sonar.plugins.checkstyle.CheckstyleRulesDefinition" />
+      <Bug pattern="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE" />
+    </Match>
+</FindBugsFilter>
